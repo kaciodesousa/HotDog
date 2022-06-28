@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El-Shaday</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Alfa Slab
+            One|Calistoga' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'> -->
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="scrollmenu">
+        <a href="#molho">Molho</a>
+        <a href="#chapa">Chapa</a>
+        <a href="#frango">Frango</a>
+        <a href="#about">Hamburgue</a>
+        <a href="#support">Sucos</a>
+        <a href="#blog">Cremes</a>
+        <a href="#tools">Refrigerante</a>
+        <a href="#base">Batata</a>
+    </div>
+    <div class="container-sm" id="conteudo">
+        <div class="grupo">
+        </div>
+        <div class="produtor">
+            <div class="row linha item">
+                <div class="col-2 cod-valor">
+                    <span class="cod">01</span>
+                    <div class="valor">R$ 0.0</div>
+                </div>
+                <p class="col descricao">.</p>
+            </div>
+            <div class="row add-produto">
+                <div class="col" style="position: relative;">
+                    Individual
+                </div>
+                <div class="col" style="position: relative;">
+                    Trio
+                </div>
+            </div>
+            <div class="row add-produto">
+                <div class="col valor1" style="position: relative;">
+                    R$ 10.00
+                </div>
+                <div class="col valor2" style="position: relative;">
+                    R$ 10.00
+                </div>
+            </div>
+            <div class="row add-produto">
+                <div class="col" style="position: relative;">
+                    <div class="btnQt">
+                        <button class="botao bt-soma">+</button>
+                        <span class="parcial">0</span>
+                        <button class="botao bt-subtrai">-</button>
+                    </div>
+
+                </div>
+                <div class="col" style="position: relative;">
+                    <span class="botoes">
+                            <button class="botao bt-somaT">+</button>
+                            <span class="parcialT">0</span>
+                    <button class="botao bt-subtraiT">-</button>
+                    </span>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+
+
+
+        <div class="outros">
+            <div class="row linha item">
+                <div class="col-3 col-sm-2 outros-valor">R$ 0.0</div>
+                <div class="col outros-desc">
+                </div>
+
+            </div>
+            <div class="row add-produto">
+                <div class="col" style="position: relative;">
+                    <span class="botoes">
+                            <button class="botao bt-soma">+</button>
+                            <span class="parcial">0</span>
+                    <button class="botao bt-subtrai">-</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="btEnviar" onclick="enviar()">
+        <div class="footer">
+            <p>Ver Pedido</p>
+        </div>
+    </div>
+
+    // Janela Modal
+    <div id="modal" class="modal">
+        <div class="modal-janela">
+            <div class="modal-cabeca">
+                PEDIDO
+                <span class="fechar">&times;</span>
+            </div>
+            <div class="modal-corpo" id="txtModal">
+                <div id="pedido"></div>
+                <div id="complemeto">
+                    <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço" style="display:
+                            block;" />
+                    <input type="text" name="nome" id="nome" placeholder="Digite seu nome" />
+                    <span class="msg">Clique em 'CONTINUAR' para enviar seu
+                            pedido via Whatsapp.</span>
+                </div>
+            </div>
+            <div class="modal-rodape">
+                <button class="enviar-ws" onclick="enviarWs()" id="bt-enviarws">Enviar<i class="fa fa-whatsapp"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="js/produtos.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

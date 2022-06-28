@@ -21,6 +21,13 @@
     }
     
     @media (max-width: 450px) {
+        #conteudo {
+            width: 400px;
+        }
+        .produtor {
+            width: 400px;
+            margin-bottom: 5px;
+        }
         img {
             width: 95%;
             display: block;

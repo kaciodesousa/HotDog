@@ -21,6 +21,7 @@ function addProdutoT(i, qt) {
 
 function criar() {
     g = "";
+    f = "";
     p = lsProduto[1];
     for (i in lsProduto) {
         p = lsProduto[i];
@@ -52,6 +53,19 @@ function criar() {
             g = p.grupo;
         }
 
+        // NavBar
+        if (f != p.grupo) {
+            const node = document.querySelector("#myList2 > a");
+            var idValor = document.createAttribute("href");
+            idValor.value = `#${p.grupo}`;
+            node.setAttributeNode(idValor);
+            const menu = p.grupo.toUpperCase()
+            node.innerHTML = menu;
+            const clone = node.cloneNode(true);
+            document.getElementById("myList2").appendChild(clone);
+            f = p.grupo;
+        }
+
         if (p.cod != '') {
             var produto = document.getElementsByClassName("produtor")[0].cloneNode(true);
             produto.getElementsByClassName("descricao")[0].innerHTML = p.descricao;
@@ -77,6 +91,7 @@ function criar() {
     none.value = `display: none`;
     document.getElementsByClassName("produtor")[0].setAttributeNode(none)
     document.getElementsByClassName("outros")[0].style.display = 'none';
+    document.querySelector("#myList2 > a:nth-child(1)").style.display = 'none';
 }
 var pedido = '';
 

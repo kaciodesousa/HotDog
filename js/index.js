@@ -30,7 +30,7 @@ function criar() {
             var grupo = document.createElement("div");
             grupo.classList.add("grupo");
             grupo.innerHTML = `
-            <div class="img-container">
+            <div class="img-container" id="${p.grupo}">
                 <a onclick="ativar()">
                     <img src="images/fish-salad-dish.jpg" alt="food pic">
                 </a>

@@ -16,14 +16,14 @@ function addProduto(i, qt) {
     (contador < 0) ? contador = 0: "";
     document.querySelector(".contador").innerHTML = contador;
 
-    // Contador de produdos
+    // Contador de valor
     valorProduto = produto.valor * qt;
     totalValor = totalValor + valorProduto;
     (totalValor < 0) ? totalValor = 0: "";
     document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
 }
 
-//document.getElementById("cod-" + i).innerHTML = `R$ ${(produto.valor * produto.qt).toFixed(1)} (x${produto.qt})`;
+//document.getElementById("cod-" + i).innerHTML = `R$ ${(produto.valor * produto.qt).toFixed(2)} (x${produto.qt})`;
 
 // Função Trio
 function addProdutoT(i, qt) {
@@ -37,7 +37,7 @@ function addProdutoT(i, qt) {
     (contador < 0) ? contador = 0: "";
     document.querySelector(".contador").innerHTML = contador;
 
-    // Contador de produdos
+    // Contador de valor
     valorProduto = produto.valorT * qt;
     totalValor = totalValor + valorProduto;
     (totalValor < 0) ? totalValor = 0: "";
@@ -96,16 +96,16 @@ function criar() {
             var produto = document.getElementsByClassName("produtor")[0].cloneNode(true);
             produto.getElementsByClassName("descricao")[0].innerHTML = p.descricao;
             produto.getElementsByClassName("cod")[0].innerHTML = p.cod;
-            produto.getElementsByClassName("valor")[0].innerHTML = `R$ ${p.valor.toFixed(1)}`;
-            produto.getElementsByClassName("valor1")[0].innerHTML = `R$ ${p.valor.toFixed(1)}`;
-            produto.getElementsByClassName("valor2")[0].innerHTML = `R$ ${p.valorT.toFixed(1)}`;
+            produto.getElementsByClassName("valor")[0].innerHTML = `R$ ${p.valor.toFixed(2)}`;
+            produto.getElementsByClassName("valor1")[0].innerHTML = `R$ ${p.valor.toFixed(2)}`;
+            produto.getElementsByClassName("valor2")[0].innerHTML = `R$ ${p.valorT.toFixed(2)}`;
             setEvents(produto);
             setEventsT(produto);
             // document.getElementById("conteudo").appendChild(produto);
         } else {
             var produto = document.getElementsByClassName("outros")[0].cloneNode(true);
             produto.getElementsByClassName("outros-desc")[0].innerHTML = p.descricao;
-            produto.getElementsByClassName("outros-valor")[0].innerHTML = `R$ ${p.valor.toFixed(1)}`;
+            produto.getElementsByClassName("outros-valor")[0].innerHTML = `R$ ${p.valor.toFixed(2)}`;
             setEvents(produto);
             p.cod = p.descricao;
 
@@ -176,18 +176,18 @@ function enviar() {
         p = lsProduto[i]
         if (p.qt > 0) {
             (p.cod.length > 3) ? extrato += '': extrato += '№ ';
-            extrato += `${p.cod} (${p.qt}x R$${p.valor.toFixed(1)}) = R$${(p.qt * p.valor).toFixed(1)} <br>`;
+            extrato += `${p.cod} (${p.qt}x R$${p.valor.toFixed(2)}) = R$${(p.qt * p.valor).toFixed(2)} <br>`;
             total += p.qt * p.valor;
         }
         // Função Trio
         if (p.qtTrio > 0) {
             (p.cod.length > 3) ? extrato += '': extrato += '№ ';
-            extrato += `${p.cod} Trio (${p.qtTrio}x R$${p.valorT.toFixed(1)}) = R$${(p.qtTrio * p.valorT).toFixed(1)} <br>`;
+            extrato += `${p.cod} Trio (${p.qtTrio}x R$${p.valorT.toFixed(2)}) = R$${(p.qtTrio * p.valorT).toFixed(2)} <br>`;
             total += p.qtTrio * p.valorT;
         }
     }
     if (extrato != "") {
-        extrato += `TOTAL PRODUTOS = R$${total.toFixed(1)}`;
+        extrato += `TOTAL PRODUTOS = R$${total.toFixed(2)}`;
         document.getElementById("complemeto").style.display = 'block';
         document.getElementById("bt-enviarws").style.display = 'block';
     } else {

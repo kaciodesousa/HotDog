@@ -107,6 +107,11 @@
         z-index: 2;
     }
     
+    .footer span {
+        text-align: center;
+        padding-left: 40px;
+    }
+    
     div.scrollmenu {
         overflow: hidden;
         background-color: #fff;

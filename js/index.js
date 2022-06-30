@@ -2,13 +2,28 @@ var lsProduto = getLsProdutos();
 // var lsProduto = JSON.parse(localStorage.getItem("lsProduto"));
 // localStorage.setItem("lsProduto", JSON.stringify(lsProduto));
 // console.log(lsProduto)
+contador = 0;
+totalValor = 0;
+
 function addProduto(i, qt) {
     produto = lsProduto[i];
     produto.qt += qt;
     (produto.qt < 0) ? produto.qt = 0: "";
     document.getElementById("cod-" + i).innerHTML = produto.qt;
-    // (x${produto.qt})
+
+    // Contador de produdos
+    contador = contador + qt;
+    (contador < 0) ? contador = 0: "";
+    document.querySelector(".contador").innerHTML = contador;
+
+    // Contador de produdos
+    valorProduto = produto.valor * qt;
+    totalValor = totalValor + valorProduto;
+    (totalValor < 0) ? totalValor = 0: "";
+    document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
 }
+
+//document.getElementById("cod-" + i).innerHTML = `R$ ${(produto.valor * produto.qt).toFixed(1)} (x${produto.qt})`;
 
 // Função Trio
 function addProdutoT(i, qt) {
@@ -16,6 +31,17 @@ function addProdutoT(i, qt) {
     produto.qtTrio += qt;
     (produto.qtTrio < 0) ? produto.qtTrio = 0: "";
     document.getElementById("cod" + i).innerHTML = produto.qtTrio;
+
+    // Contador de produdos
+    contador = contador + qt;
+    (contador < 0) ? contador = 0: "";
+    document.querySelector(".contador").innerHTML = contador;
+
+    // Contador de produdos
+    valorProduto = produto.valorT * qt;
+    totalValor = totalValor + valorProduto;
+    (totalValor < 0) ? totalValor = 0: "";
+    document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
     // (x${produto.qt})
 }
 
@@ -126,6 +152,20 @@ function setEventsT(produto) {
     var idValor = document.createAttribute("id");
     idValor.value = `cod${i}`;
     produto.getElementsByClassName("parcialT")[0].setAttributeNode(idValor);
+}
+
+function contador() {
+    contador = 0;
+    for (i in lsProduto) {
+        p = lsProduto[i]
+        if (p.qt > 0) {
+            contador = contador + p.qt;
+            console.log(contador);
+
+            document.querySelector(".contador").innerHTML = contador;
+            contador = 0;
+        }
+    }
 }
 
 function enviar() {

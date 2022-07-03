@@ -27,9 +27,6 @@ function addProduto(i, qt) {
         (totalValor < 0) ? totalValor = 0: "";
         document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
     }
-
-
-    console.log(contador2);
 }
 
 //document.getElementById("cod-" + i).innerHTML = `R$ ${(produto.valor * produto.qt).toFixed(2)} (x${produto.qt})`;

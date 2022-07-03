@@ -5,22 +5,31 @@ var lsProduto = getLsProdutos();
 contador = 0;
 totalValor = 0;
 
+// Função Individual
 function addProduto(i, qt) {
     produto = lsProduto[i];
     produto.qt += qt;
+    contador2 = produto.qt + 1;
     (produto.qt < 0) ? produto.qt = 0: "";
     document.getElementById("cod-" + i).innerHTML = produto.qt;
 
     // Contador de produdos
-    contador = contador + qt;
-    (contador < 0) ? contador = 0: "";
-    document.querySelector(".contador").innerHTML = contador;
+    if (contador2 > 0) {
+        contador = contador + qt;
+        (contador < 0) ? contador = 0: "";
+        document.querySelector(".contador").innerHTML = contador;
+    }
 
     // Contador de valor
-    valorProduto = produto.valor * qt;
-    totalValor = totalValor + valorProduto;
-    (totalValor < 0) ? totalValor = 0: "";
-    document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
+    if (contador2 > 0) {
+        valorProduto = produto.valor * qt;
+        totalValor = totalValor + valorProduto;
+        (totalValor < 0) ? totalValor = 0: "";
+        document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
+    }
+
+
+    console.log(contador2);
 }
 
 //document.getElementById("cod-" + i).innerHTML = `R$ ${(produto.valor * produto.qt).toFixed(2)} (x${produto.qt})`;
@@ -29,19 +38,24 @@ function addProduto(i, qt) {
 function addProdutoT(i, qt) {
     produto = lsProduto[i];
     produto.qtTrio += qt;
+    contador2 = produto.qtTrio + 1;
     (produto.qtTrio < 0) ? produto.qtTrio = 0: "";
     document.getElementById("cod" + i).innerHTML = produto.qtTrio;
 
     // Contador de produdos
-    contador = contador + qt;
-    (contador < 0) ? contador = 0: "";
-    document.querySelector(".contador").innerHTML = contador;
+    if (contador2 > 0) {
+        contador = contador + qt;
+        (contador < 0) ? contador = 0: "";
+        document.querySelector(".contador").innerHTML = contador;
+    }
 
     // Contador de valor
-    valorProduto = produto.valorT * qt;
-    totalValor = totalValor + valorProduto;
-    (totalValor < 0) ? totalValor = 0: "";
-    document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
+    if (contador2 > 0) {
+        valorProduto = produto.valorT * qt;
+        totalValor = totalValor + valorProduto;
+        (totalValor < 0) ? totalValor = 0: "";
+        document.querySelector(".total").innerHTML = `R$ ${totalValor.toFixed(2)}`;
+    }
     // (x${produto.qt})
 }
 

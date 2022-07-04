@@ -103,19 +103,30 @@
     <div id="modal" class="modal">
         <div class="modal-janela">
             <div class="modal-cabeca">
-                PEDIDO
-                <span class="fechar">&times;</span>
+                <h4 class="modal-title">Pedido<span class="fechar">&times;</span></h4>
             </div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Valor</th>
+                        <th>Qtd</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody class="modal-body"></tbody>
+            </table>
+
             <div class="modal-corpo" id="txtModal">
-                <div id="pedido"></div>
+                <!-- <div id="pedido"></div> -->
                 <div id="complemeto">
-                    <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço" style="display:
-                            block;" />
+                    <input type="text" name="endereco" id="endereco" placeholder="Digite seu endereço" style="display: block;" />
                     <input type="text" name="nome" id="nome" placeholder="Digite seu nome" />
-                    <span class="msg">Clique em 'CONTINUAR' para enviar seu
-                            pedido via Whatsapp.</span>
+                    <span class="msg">Clique em 'CONTINUAR' para enviar seu pedido via Whatsapp.</span>
                 </div>
             </div>
+
             <div class="modal-rodape">
                 <button class="enviar-ws" onclick="enviarWs()" id="bt-enviarws">Enviar<i class="fa fa-whatsapp"></i></button>
             </div>

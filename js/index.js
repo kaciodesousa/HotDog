@@ -183,10 +183,13 @@ function enviar() {
     modal.style.display = "block";
     total = 0;
     extrato = "Pedido 001<br>";
+    msgModal = "";
     for (i in lsProduto) {
         p = lsProduto[i]
         if (p.qt > 0) {
             (p.cod.length > 3) ? extrato += '': extrato += '№ ';
+            // msgModal += `<tr><td>${produto.nome.toUpperCase()}</td><td>R$ ${produto.valor}</td><td class="tdQt">${produto.qt}</td><td>R$ ${subTotal}</td></tr>`;
+            msgModal += `<tr><td>${p.cod}</td><td>R$${p.valor.toFixed(2)}</td><td>${p.qt}</td><td>R$${(p.qt * p.valor).toFixed(2)}</td></tr>`;
             extrato += `${p.cod} (${p.qt}x R$${p.valor.toFixed(2)}) = R$${(p.qt * p.valor).toFixed(2)} <br>`;
             total += p.qt * p.valor;
         }
@@ -199,6 +202,7 @@ function enviar() {
     }
     if (extrato != "") {
         extrato += `TOTAL PRODUTOS = R$${total.toFixed(2)}`;
+        msgModal += `<tr><td>TOTAL R$${total.toFixed(2)}</td></tr>`;
         document.getElementById("complemeto").style.display = 'block';
         document.getElementById("bt-enviarws").style.display = 'block';
     } else {
@@ -207,7 +211,8 @@ function enviar() {
         document.getElementById("bt-enviarws").style.display = 'none';
     }
 
-    document.getElementById("pedido").innerHTML = extrato;
+    // document.getElementById("pedido").innerHTML = extrato;
+    document.querySelector(".modal-body").innerHTML = msgModal;
     pedido = extrato;
 
 }
